@@ -1,13 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>react-weui</title>
-</head>
-<body ontouchstart>
-<div id="container"></div>
-<script src="vendor.js"></script>
-<script src="bundle.js"></script>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React-weui by keji8</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>React-weui</h1>
+        <p>weui for react</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/keji8/react-weui" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/keji8/react-weui/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/keji8/react-weui/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="weui-为微信web服务量身设计---" class="anchor" href="#weui-%E4%B8%BA%E5%BE%AE%E4%BF%A1web%E6%9C%8D%E5%8A%A1%E9%87%8F%E8%BA%AB%E8%AE%BE%E8%AE%A1---" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WeUI 为微信Web服务量身设计  <a href="https://travis-ci.org/weui/react-weui"><img src="https://travis-ci.org/weui/react-weui.svg?branch=master" alt="Build Status"></a> <a href="https://www.npmjs.org/package/react-weui"><img src="https://img.shields.io/npm/v/react-weui.svg" alt="npm version"></a>
+</h1>
+
+<h3>
+<a id="weui" class="anchor" href="#weui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WeUI</h3>
+
+<p>WeUI是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信 Web 开发量身设计，可以令用户的使用感知更加统一。包含<code>button</code>、<code>cell</code>、<code>dialog</code>、 <code>progress</code>、<code>toast</code>、<code>article</code>、<code>icon</code>等各式组件。</p>
+
+<p><a href="https://github.com/weui/weui">https://github.com/weui/weui</a></p>
+
+<h3>
+<a id="react-weui" class="anchor" href="#react-weui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>React-WeUI</h3>
+
+<p>使用<code>react</code>的方式来构建界面</p>
+
+<h3>
+<a id="目录结构" class="anchor" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>目录结构</h3>
+
+<pre><code>react-weui
+├── README.md
+├── docs                    # 文档说明
+├── example                 # 示例代码
+├── package.json            # package.json
+├── src                     # react-weui组件源码
+├── test                    # 测试文件
+└── webpack.config.js       # webpack配置文件
+</code></pre>
+
+<h3>
+<a id="安装" class="anchor" href="#%E5%AE%89%E8%A3%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装</h3>
+
+<pre><code>npm install weui react-weui --save
+</code></pre>
+
+<h3>
+<a id="使用" class="anchor" href="#%E4%BD%BF%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// app.js</span>
+
+<span class="pl-k">import</span> <span class="pl-smi">React</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">ReactDOM</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-dom<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">WeUI</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-weui<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">'</span>weui<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> {<span class="pl-c1">Button</span>} <span class="pl-k">=</span> WeUI;
+
+<span class="pl-k">class</span> <span class="pl-en">App</span> <span class="pl-k">extends</span> <span class="pl-en">React</span>.<span class="pl-smi">Component</span> {
+    <span class="pl-en">render</span>() {
+        <span class="pl-k">return</span> (
+            <span class="pl-k">&lt;</span><span class="pl-c1">Button</span><span class="pl-k">&gt;</span>hello wechat<span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">Button</span><span class="pl-k">&gt;</span>
+        );
+    }
+}
+
+<span class="pl-smi">ReactDOM</span>.<span class="pl-en">render</span>((
+    <span class="pl-k">&lt;</span>App<span class="pl-k">/</span><span class="pl-k">&gt;</span>
+), <span class="pl-smi">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">'</span>container<span class="pl-pds">'</span></span>));
+</pre></div>
+
+<h3>
+<a id="开发" class="anchor" href="#%E5%BC%80%E5%8F%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>开发</h3>
+
+<pre><code>git clone https://github.com/weui/react-weui
+cd react-weui
+npm install
+npm start
+</code></pre>
+
+<h3>
+<a id="文档" class="anchor" href="#%E6%96%87%E6%A1%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文档</h3>
+
+<ul>
+<li><a href="./docs/installation.md">快速上手</a></li>
+<li><a href="./docs/actionsheet.md">ActionSheet</a></li>
+<li><a href="./docs/button.md">Button</a></li>
+<li><a href="./docs/cell.md">Cell</a></li>
+<li><a href="./docs/dialog.md">Dialog</a></li>
+<li>
+<a href="./docs/form.md">Form</a> (TODO)</li>
+<li><a href="./docs/icon.md">Icon</a></li>
+<li><a href="./docs/mask.md">Mask</a></li>
+<li><a href="./docs/msg.md">Msg</a></li>
+<li><a href="./docs/progress.md">Progress</a></li>
+<li><a href="./docs/toast.md">Toast</a></li>
+</ul>
+
+<h3>
+<a id="体验" class="anchor" href="#%E4%BD%93%E9%AA%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>体验</h3>
+
+<p><img src="./docs/qrcode.png" alt="react-weui"></p>
+
+<p><a href="https://weui.github.io/react-weui">https://weui.github.io/react-weui</a></p>
+
+<h3>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h3>
+
+<p>The MIT License(<a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>)</p>
+
+<p>请自由地享受和参与开源</p>
+
+<h3>
+<a id="贡献" class="anchor" href="#%E8%B4%A1%E7%8C%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>贡献</h3>
+
+<p>如果你有好的意见或建议，欢迎给我们提 issue 或 pull request，为提升微信 web 体验贡献力量</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/keji8">keji8</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
 </html>
